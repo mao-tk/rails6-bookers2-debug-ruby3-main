@@ -4,7 +4,7 @@
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
-      <th>favorites</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,12 +18,12 @@
         <td><%= book.body %></td>
         <td>
           <% if book.favorited_by?(current_user) %>
-            <%= link_to book_favorites_path(book), method: :delete do %>
-              <i class="fas fa-heart"></i> <%= book.favorites.count %>
+            <%= link_to book_favorites_path(book), method: :delete, class: "link-primary" do %>
+              <span class="text-danger"><i class="fas fa-heart"></i> <%= book.favorites.count %></span>
             <% end %>
           <% else %>
             <%= link_to book_favorites_path(book), method: :post do %>
-              <i class="far fa-heart"></i> <%= book.favorites.count %>
+              <span class="text-primary"><i class="fas fa-heart"></i> <%= book.favorites.count %></span>
             <% end %>
           <% end %>
         </td>
