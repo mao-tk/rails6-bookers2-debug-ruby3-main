@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Opinion</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +27,9 @@
               <span class="text-primary"><i class="fas fa-heart"></i> <%= book.favorites.count %></span>
             <% end %>
           <% end %>
+        </td>
+        <td>
+          コメント数: <%= book.book_comments.count %>
         </td>
       </tr>
     <% end %>
