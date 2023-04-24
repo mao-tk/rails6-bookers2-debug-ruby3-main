@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
 
-  resources :groups, only: [:new, :create, :index, :show, :edit, :update]
+  resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    get "join" => "groups#join"
+  end
 
   resources :chats, only: [:show, :create]
 
