@@ -7,8 +7,35 @@
       <%= render 'books/form', book: @book %>
     </div>
     <div class='col-md-8 offset-md-1'>
+      <!--一覧表示-->
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
+
+      <!--投稿数・比較-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>今日の投稿数</th>
+            <th>前日の投稿数</th>
+            <th>前日比</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <%= current_user.books.where('created_at > ?', Date.today).count %>
+            </td>
+            <td>
+              <%= current_user.books.where(created_at: 1.day.ago.all_day).count %>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>
