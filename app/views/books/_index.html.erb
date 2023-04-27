@@ -7,6 +7,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +26,15 @@
           コメント数: <%= book.book_comments.count %>
         </td>
         <td>
-
+          <div id="post_raty_<%=book.id%>"></div>
+            <script>
+              new Raty(document.querySelector('#post_raty_<%=book.id%>'), {
+                readOnly: function() {
+                  return true;
+                }
+              });
+              raty(elem,opt);
+            </script>
         </td>
         <td>
           閲覧数: <%= book.view_counts.count %>
