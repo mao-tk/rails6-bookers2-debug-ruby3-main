@@ -20,7 +20,12 @@ global.$ = jQuery;
 window.$ = jQuery;
 global.Chart = Chart;
 
-require('packs/raty')
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
 
 Rails.start()
 Turbolinks.start()
