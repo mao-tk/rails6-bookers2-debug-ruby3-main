@@ -26,15 +26,20 @@
           コメント数: <%= book.book_comments.count %>
         </td>
         <td>
+          <!--レビュー-->
           <div id="post_raty_<%=book.id%>"></div>
-            <script>
-              new Raty(document.querySelector('#post_raty_<%=book.id%>'), {
-                readOnly: function() {
-                  return true;
-                }
-              });
-              raty(elem,opt);
-            </script>
+          <script>
+            // scriptファイルをどのidの部分に配置するかを指定
+            elem = document.querySelector('#post_raty_<%=book.id%>');
+            opt = {
+              //星画像の指定などのオプションをここに記述,
+              starOff: '<%= asset_path('star-off.png') %>',
+              starOn: '<%= asset_path('star-on.png') %>',
+              score: '<%=book.star%>',
+              half: false,
+             };
+            raty(elem,opt);
+          </script>
         </td>
         <td>
           閲覧数: <%= book.view_counts.count %>
