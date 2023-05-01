@@ -33,6 +33,7 @@
             elem = document.querySelector('#post_raty_<%=book.id%>');
             opt = {
               //星画像の指定などのオプションをここに記述,
+              readOnly: true,
               starOff: '<%= asset_path('star-off.png') %>',
               starOn: '<%= asset_path('star-on.png') %>',
               score: '<%=book.star%>',

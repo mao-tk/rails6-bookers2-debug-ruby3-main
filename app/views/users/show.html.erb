@@ -96,8 +96,8 @@
        </tbody>
       </table>
 
-      <!--グラフ(%つける）-->
-      <!--< render 'chart', books: @books, yesterday_count: @yesterday_count, today_count: @today_count >-->
+      <!--グラフ-->
+      <%= render 'chart', books: @books, yesterday_count: @yesterday_count, today_count: @today_count %>
 
         <%= form_with url: user_search_path(@user), method: :get, local: false do |f| %>
           <%= f.date_field :created_at %>

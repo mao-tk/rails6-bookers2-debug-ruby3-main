@@ -26,17 +26,20 @@
 
           <!--レビュー-->
           <td>
-            <div id="star-rate<%= @book.id %>"></div>
-              <script>
-                $('#star-rate<%= @book.id %>').empty();
-                $('#star-rate<%= @book.id %>').raty({
-                  size : 36,
-                  starOff : '<%= asset_path('star-off.png') %>',
-                  starOn :  '<%= asset_path('star-on.png') %>',
-                  half : false,
-                  score : '<%= @book.star %>',
-                });
-              </script>
+            <div id="post_raty_<%=@book.id%>"></div>
+            <script>
+              // scriptファイルをどのidの部分に配置するかを指定
+              elem = document.querySelector('#post_raty_<%=@book.id%>');
+              opt = {
+                //星画像の指定などのオプションをここに記述,
+                readOnly: true,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn: '<%= asset_path('star-on.png') %>',
+                score: '<%=@book.star%>',
+                half: false,
+               };
+              raty(elem,opt);
+            </script>
           </td>
 
           <% if @book.user_id == current_user.id %>
