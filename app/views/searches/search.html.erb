@@ -1,27 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto">
-      <table class="table">
-        <% if @range == "User" %>
-        <h2>Users search for "<%= "#{@word}" %>"</h2>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= image_tag user.get_profile_image, size: '80x80' %></td>
-            <td><%= user.name %></td>
-          </tr>
-          <% end %>
-        <% else %>
-        <h2>Books search for "<%= "#{@word}" %>"</h2>
-          <% @books.each do |book| %>
-          <tr>
-            <td><%= image_tag book.user.get_profile_image, size: '80x80' %></td>
-            <td><%= book.title %></td>
-            <td><%= book.body %></td>
-          </tr>
-          <% end %>
-        <% end %>
-      </table>
-
-    </div>
-  </div>
-</div>
+<% if @model == 'user' %>
+	<h3>Users search for "<%= @content %>"</h3>
+  <%= render 'users/index', users: @records %>
+<% elsif @model == 'book' || @model == 'tag' %>
+	<h3>Books search for "<%= @content %>"</h3>
+  <%= render 'books/index', books: @records %>
+<% end %>
