@@ -12,6 +12,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    puts "作成したキー#{ENV['SECRET_KEY']}"
     @book = Book.new
     if params[:new_arrival]
       @books = Book.new_arrival
