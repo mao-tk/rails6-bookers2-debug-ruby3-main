@@ -59,5 +59,3 @@ gem 'devise'
 gem 'dotenv-rails'
 
 gem "chartkick"
-
-gem 'dotenv-rails'
